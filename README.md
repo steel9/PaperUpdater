@@ -6,11 +6,13 @@ A Python script for automating Paper Spigot updates.
 - Python 3
 - Requests (Python module)
 
-### Get Started (Linux)
-1. Install the prerequisites.
-2. Navigate to your server directory, and execute <code>git clone https://github.com/steel9/PaperUpdater.git</code>
-3. Create another server script - you should have two. The first script should execute PaperUpdater, and then call the other script which actually starts the server. See example below.
-4. Run <code>python3 PaperUpdater/update_paper.py -c</code> and set the desired Paper version and the path to your second server script (the one that does NOT call the updater script, that actually starts the server).
+### Get Started (Debian/Linux)
+1. Execute <code>sudo apt update</code>
+2. Install Python 3 if not already installed. Do so by executing <code>sudo apt install python3</code>
+3. Install Requests if not already installed. Do so by executing <code>pip install requests</code>
+4. Navigate to your server directory, and execute <code>git clone https://github.com/steel9/PaperUpdater.git</code>
+5. Create another server script - you should have two. The first script should execute PaperUpdater, and then call the other script which actually starts the server. See example below.
+6. Run <code>python3 PaperUpdater/update_paper.py -c</code> and set the desired Paper version and the path to your second server script (the one that does NOT call the updater script, that actually starts the server).
 
 
 ### Example Usage
