@@ -7,7 +7,7 @@ A Python script for automating Paper Spigot updates.
 - Requests (Python module)
 
 ### Get Started (Debian/Linux)
-1. Execute <code>sudo apt update</code>
+1. Execute <code>sudo apt update</code> beforehand if you need to do step 2 or 3.
 2. Install Python 3 if not already installed. Do so by executing <code>sudo apt install python3</code>
 3. Install Requests if not already installed. Do so by executing <code>pip install requests</code>
 4. Navigate to your server directory, and execute <code>git clone https://github.com/steel9/PaperUpdater.git</code>
