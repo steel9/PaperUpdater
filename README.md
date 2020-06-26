@@ -1,5 +1,5 @@
 # PaperUpdater
-A Python script for automating Paper Spigot updates
+A Python script for automating Paper Spigot updates.
 
 ## Documentation
 ### Get Started (Linux)
