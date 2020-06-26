@@ -15,13 +15,13 @@ A Python script for automating Paper Spigot updates.
 
 
 ### Example Usage
-start.sh - script that is executed by systemd when starting server
+**start.sh** - script that is executed by systemd when starting server
 
     #!/bin/sh
 
     python3 PaperUpdater/update_paper.py -y
     sh ./start_noupdate.sh
-start_noupdate.sh - script that actually starts the server, which is executed after updating Paper (replace '\_123' with the build number of your server jar)
+**start_noupdate.sh** - script that actually starts the server, which is executed after updating Paper (replace '\_123' with the build number of your server jar)
 
     #!/bin/sh
 
