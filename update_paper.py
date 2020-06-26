@@ -155,7 +155,7 @@ def generate_config(json_cfg_path):
             sys.exit(0)
 
         cfg = {"paper-version" : ver,
-        "start-script-path" : "../start.sh"}
+        "start-script-path" : "../start_noupdate.sh"}
         return cfg
     else:
         return None
