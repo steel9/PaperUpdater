@@ -1,4 +1,4 @@
-# PaperUpdater
+# PaperUpdater - EXPERIMENTAL BETA
 A Python script for automating Paper Spigot updates.
 
 ## Documentation
