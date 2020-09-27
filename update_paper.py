@@ -199,7 +199,7 @@ def change_config(cfg):
                 _ = input("\nPress ENTER to retry ...")
                 continue
 
-            cfg["start-script-path"] = new_path
+            cfg["start-script-path"] = os.path.abspath(new_path)
             break
 
     sel = None
