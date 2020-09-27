@@ -157,7 +157,7 @@ def generate_config(json_cfg_path):
             sys.exit(0)
 
         cfg = {"paper-version" : ver,
-        "start-script-path" : "../start_noupdate.sh"}
+        "start-script-path" : os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), "start_noupdate.sh")}
         return cfg
     else:
         return None
@@ -250,7 +250,7 @@ def main():
         return
 
 
-    json_cfg_path = 'update_paper_config.json'
+    json_cfg_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'update_paper_config.json')
 
     cfg = generate_config(json_cfg_path)
     if cfg is None:
