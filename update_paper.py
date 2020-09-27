@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
 
+# NOTE: 3rd party modules are imported in the main() function.
+
 import re
 import os
 import sys
@@ -49,7 +51,7 @@ def chk_update(cfg, ask_before_update):
 
     # Find newest existing build jar in script dir
     current_buildnum = -1
-    for filename in os.listdir(os.path.dirname(os.path.realpath(__file__))):
+    for filename in os.listdir(os.path.dirname(os.path.dirname(os.path.realpath(__file__)))):
         if not re.match(buildnum_pattern, filename):
             # file is not a Paper jar file
             continue
