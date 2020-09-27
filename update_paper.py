@@ -14,8 +14,8 @@ base_version_url = "https://papermc.io/api/v1/paper/{}"
 
 
 class PaperUpdateData:
-    def __init__(self, filename, download_url, buildnum, size):
-        self.filename = filename
+    def __init__(self, filepath, download_url, buildnum, size):
+        self.filepath = filepath
         self.download_url = download_url
         self.buildnum = buildnum
         self.size = size
@@ -86,7 +86,7 @@ def chk_update(cfg, ask_before_update):
         if sel.lower() != "y":
             return None
 
-    return PaperUpdateData(latest_filename, download_url, latest_buildnum, latest_download_size)
+    return PaperUpdateData(os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), latest_filename), download_url, latest_buildnum, latest_download_size)
 
 
 def download_update(update_data):
@@ -94,7 +94,7 @@ def download_update(update_data):
 
     # Download and save jar
     jar = requests.get(update_data.download_url, allow_redirects=True)
-    with open(update_data.filename, 'wb') as file:
+    with open(update_data.filepath, 'wb') as file:
         file.write(jar.content)
 
 
@@ -111,7 +111,7 @@ def update_server_script(cfg, update_data):
         filedata = file.read()
 
     # replace Paper jar filename in script with the filename of the new jar
-    filedata = re.sub(jar_pattern, update_data.filename, filedata)
+    filedata = re.sub(jar_pattern, os.path.basename(update_data.filepath), filedata)
 
     with open(cfg["start-script-path"], 'w') as file:
         file.write(filedata)
