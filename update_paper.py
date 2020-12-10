@@ -10,7 +10,7 @@ import json
 
 
 base_download_url = "https://papermc.io/api/v1/paper/{}/latest/download"
-base_version_url = "https://papermc.io/api/v1/paper/{}"
+base_version_url = "https://papermc.io/api/v1/paper/{}/latest"
 
 
 class PaperUpdateData:
@@ -43,9 +43,12 @@ def chk_update(cfg, ask_before_update):
 
     headers = requests.head(download_url)
 
-    buildnum_pattern = r"^paper-(.*).jar$"
+    buildnum_pattern = r"^paper-{}-(.*).jar$".format(cfg['paper-version'])
 
-    latest_filename = headers.headers['Content-Disposition'].split("filename=",1)[1]
+    #latest_filename = headers.headers['Content-Disposition'].split("filename=",1)[1]
+    build_data = json.loads(requests.get(base_version_url.format(cfg['paper-version'])).text)
+    latest_filename = 'paper-{}-{}.jar'.format(build_data['version'], build_data['build'])
+	
     latest_download_size = int(headers.headers['Content-Length'])
     latest_buildnum = int(re.search(buildnum_pattern, latest_filename).group(1))
 
