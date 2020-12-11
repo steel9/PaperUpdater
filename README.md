@@ -25,7 +25,7 @@ A Python script for automating Paper Spigot updates.
 
     #!/bin/sh
 
-    java -Xmx8G -jar paper-123.jar
+    java -Xmx8G -jar paper-1.16.4-123.jar
 
 ### Parameter Options
 |Parameter|Alternative|Definition|
